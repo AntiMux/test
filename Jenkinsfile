@@ -20,7 +20,7 @@ pipeline {
     stages {
         stage("build") {
             steps {
-                sh 'echo ${devops_branch}'
+                sh 'echo ${params.devops_branch}'
             }
         }
     }
