@@ -14,13 +14,15 @@ properties([
         ]),
 ])
 
+def devops_branch = params.devops_branch
+
 pipeline {
 
     agent any
     stages {
         stage("build") {
             steps {
-                sh 'echo ${params.devops_branch}'
+                sh 'echo ${devops_branch}'
             }
         }
     }
