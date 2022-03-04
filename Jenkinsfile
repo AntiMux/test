@@ -1,4 +1,3 @@
-
 properties([
         parameters([
                 string(
@@ -22,7 +21,7 @@ pipeline {
     stages {
         stage("build") {
             steps {
-                sh 'echo ${devops_branch}'
+                echo '${devops_branch}'
             }
         }
     }
