@@ -1,16 +1,11 @@
 properties([
         parameters([
                 string(
-                        name: 'devops_branch',
-                        defaultValue: 'master',
-                        description: 'Devops branch.'
-                ),
-                string(
-                        name: 'infra_branch',
-                        defaultValue: 'master',
-                        description: 'Infra branch.'
+                        name: 'tag',
+                        defaultValue: '',
+                        description: 'Tag to run'
                 )
-        ]),
+        ])
 ])
 
 def devops_branch = params.devops_branch
@@ -21,7 +16,7 @@ pipeline {
     stages {
         stage("build") {
             steps {
-                echo '${devops_branch}'
+                echo '${tag}'
             }
         }
     }
