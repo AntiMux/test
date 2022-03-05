@@ -2,7 +2,7 @@ properties([
         parameters([
                 string(
                         name: 'tag',
-                        defaultValue: 'test8',
+                        defaultValue: 'test9',
                         description: 'Tag to run'
                 )
         ])
@@ -24,7 +24,7 @@ pipeline {
                 cleanWs()
                 checkout([
                     $class: 'GitSCM',
-                    branches: [[name: "refs/tags/${myTag}"]],
+                    branches: [[name: "tags/${myTag}"]],
                     extensions: [[$class: 'CloneOption', shallow: false, depth: 0, reference: '']],
                   ])
             }
