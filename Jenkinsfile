@@ -8,7 +8,7 @@ properties([
         ])
 ])
 
-def devops_branch = params.devops_branch
+def tag = params.tag
 
 pipeline {
 
