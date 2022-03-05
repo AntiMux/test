@@ -8,7 +8,7 @@ properties([
         ])
 ])
 
-def tag = params.tag
+def myTag = params.tag
 
 pipeline {
 
@@ -16,7 +16,7 @@ pipeline {
     stages {
         stage("build") {
             steps {
-                echo "${tag}"
+                echo "${myTag}"
             }
         }
     }
