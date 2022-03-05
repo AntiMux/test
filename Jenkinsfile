@@ -2,7 +2,7 @@ properties([
         parameters([
                 string(
                         name: 'tag',
-                        defaultValue: 'tags/test5',
+                        defaultValue: 'test5',
                         description: 'Tag to run'
                 )
         ])
@@ -22,10 +22,11 @@ pipeline {
         stage("Checkout"){
             steps {
                 cleanWs()
-                git(
-                        url: "https://github.com/AntiMux/test.git",
-                        branch: "tags/${myTag}"
-                )
+                checkout([
+                    $class: 'GitSCM',
+                    branches: [[name: 'refs/tags/${myTag}']],
+                    extensions: [[$class: 'CloneOption', shallow: false, depth: 0, reference: '']],
+                  ])
             }
         }
         stage("print directory"){
