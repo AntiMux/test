@@ -2,7 +2,7 @@ properties([
         parameters([
                 string(
                         name: 'tag',
-                        defaultValue: 'test5',
+                        defaultValue: 'test7',
                         description: 'Tag to run'
                 )
         ])
