@@ -16,7 +16,7 @@ pipeline {
     stages {
         stage("build") {
             steps {
-                echo '${tag}'
+                echo "${tag}"
             }
         }
     }
