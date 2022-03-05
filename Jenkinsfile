@@ -19,5 +19,20 @@ pipeline {
                 echo "${myTag}"
             }
         }
+        stage("Checkout"){
+            steps {
+                cleanWs()
+                git(
+                        url: "https://github.com/AntiMux/test.git",
+                        branch: "tags/${myTag}"
+                )
+            }
+        }
+        stage("print directory"){
+            steps {
+                sh 'ls .'
+                sh 'git tag --points-at HEAD'
+            }
+        }
     }
 }
