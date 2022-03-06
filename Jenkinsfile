@@ -2,7 +2,7 @@ properties([
         parameters([
                 string(
                         name: 'tag',
-                        defaultValue: 'test11',
+                        defaultValue: 'test12',
                         description: 'Tag to run'
                 )
         ])
@@ -23,6 +23,7 @@ pipeline {
             steps {
                 cleanWs()
                 git(
+                    url: "https://github.com/AntiMux/test.git"
                     branch: 'master'
                 )
                 sh "git checkout tags/${myTag}"
