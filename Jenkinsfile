@@ -2,7 +2,7 @@ properties([
         parameters([
                 string(
                         name: 'tag',
-                        defaultValue: 'test10',
+                        defaultValue: 'test11',
                         description: 'Tag to run'
                 )
         ])
@@ -26,6 +26,7 @@ pipeline {
                     branch: 'master'
                 )
                 sh "git checkout tags/${myTag}"
+            }
         }
         stage("print directory"){
             steps {
