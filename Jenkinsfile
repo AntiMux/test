@@ -2,7 +2,7 @@ properties([
         parameters([
                 string(
                         name: 'tag',
-                        defaultValue: 'test9',
+                        defaultValue: 'test10',
                         description: 'Tag to run'
                 )
         ])
@@ -22,12 +22,10 @@ pipeline {
         stage("Checkout"){
             steps {
                 cleanWs()
-                checkout([
-                    $class: 'GitSCM',
-                    branches: [[name: "tags/${myTag}"]],
-                    extensions: [[$class: 'CloneOption', shallow: false, depth: 0, reference: '']],
-                  ])
-            }
+                git(
+                    branch: 'master'
+                )
+                sh "git checkout tags/${myTag}"
         }
         stage("print directory"){
             steps {
